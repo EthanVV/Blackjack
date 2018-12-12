@@ -2,23 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from './components/card.jsx';
 
-const exampleCard = {value: 'K', suit: 'heart'};
-
+const values = ['A',2,3,4,5,6,7,8,9,10,'J','K','Q'];
+const suits = ['heart','club','spade','diamond'];
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      deck: []
+    };
   }
-
+ 
+  componentDidMount() {
+   this.replaceDeck();
+  }
+  
+  replaceDeck() {
+    let shuffledDeck = [];
+    for (let s of suits) for (let v of values) {
+      shuffledDeck.push({suit: s, value: v});
+    }
+    this.setState({deck: shuffledDeck});
+  }
 
   render() {
     return (
       <div>
-        <Card card={{value: '2', suit: 'heart'}}/>
-        <Card card={{value: 'K', suit: 'spade'}}/>
-        <Card card={{value: '7', suit: 'diamond'}}/>
-        <Card card={{value: 'A', suit: 'club'}}/>
+        {this.state.deck.map((x, i) => {
+          return <Card card={x} key={`${x.suit}${x.value}`}/>
+        })}
       </div>
     )
   }

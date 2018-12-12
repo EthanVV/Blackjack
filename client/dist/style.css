@@ -36,6 +36,6 @@ body {
 }
 
 .heart {color: red}
-.diamond {color: red}
-.spade {color: black}
 .club {color: black}
+.spade {color: black}
+.diamond {color: red}
