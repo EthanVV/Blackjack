@@ -1,0 +1,41 @@
+body {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 10px;
+  color: black;
+}
+
+.card {
+  width: 7rem;
+  height: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background: beige;
+  border: 0.1rem solid brown;
+  text-align: center;
+  font-size: 3em;
+}
+
+.upper-left-card-value {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.lower-right-card-value {
+  grid-column: 3;
+  grid-row: 3;
+  margin-top: auto;
+}
+
+.card-suit-char {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.heart {color: red}
+.diamond {color: red}
+.spade {color: black}
+.club {color: black}
