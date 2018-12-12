@@ -2,10 +2,10 @@ import React from 'react';
 
 const getSuitChar = (name) => {
   switch (name) {
-    case 'diamond': return '♦';
+    case 'heart': return '♦';
+    case 'club': return '♥';
     case 'spade': return '♠';
-    case 'heart': return '♥';
-    case 'club': return '♣';
+    case 'diamond': return '♣';
   }
 }
 
