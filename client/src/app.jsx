@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Card from './components/card.jsx';
 
-const values = ['A',2,3,4,5,6,7,8,9,10,'J','K','Q'];
-const suits = ['heart','club','spade','diamond'];
+const {shuffle, fresh} = require('./utilities/deck.js');
+
 
 class App extends React.Component {
   constructor() {
@@ -14,15 +14,7 @@ class App extends React.Component {
   }
  
   componentDidMount() {
-   this.replaceDeck();
-  }
-  
-  replaceDeck() {
-    let shuffledDeck = [];
-    for (let s of suits) for (let v of values) {
-      shuffledDeck.push({suit: s, value: v});
-    }
-    this.setState({deck: shuffledDeck});
+   this.setState({deck: shuffle(fresh())});
   }
 
   render() {
