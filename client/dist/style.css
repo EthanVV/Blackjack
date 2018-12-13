@@ -5,6 +5,18 @@ body {
   color: black;
 }
 
+.board {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+}
+
+.hand {
+  display: grid;
+  grid-template-columns: repeat(5, 4rem);
+  grid-template-rows: repeat(2, 6rem);
+}
+
 .card {
   width: 7rem;
   height: 10rem;
@@ -14,18 +26,20 @@ body {
   background: beige;
   border: 0.1rem solid brown;
   text-align: center;
-  font-size: 3em;
+  font-size: 1rem;
 }
 
 .upper-left-card-value {
   grid-column: 1;
   grid-row: 1;
+  font-size: 2em;
 }
 
 .lower-right-card-value {
   grid-column: 3;
   grid-row: 3;
   margin-top: auto;
+  font-size: 2em;
 }
 
 .card-suit-char {
@@ -33,6 +47,7 @@ body {
   grid-row: 2;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: 2em;
 }
 
 .heart {color: red}
