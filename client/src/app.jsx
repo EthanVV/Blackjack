@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Card from './components/card.jsx';
+import Hand from './components/hand.jsx';
 
 const {shuffle, fresh} = require('./utilities/deck.js');
 
@@ -9,20 +9,33 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      deck: []
+      deck: [],
+      pHand: [],
+      dHand: [],
+      playerIn: true
     };
   }
  
   componentDidMount() {
-   this.setState({deck: shuffle(fresh())});
+   this.newGame();
+  }
+
+  newGame() {
+    this.setState({
+      deck: shuffle(fresh()),
+      pHand: [],
+      dHand: [],
+      playerIn: true
+    });
+    
   }
 
   render() {
     return (
-      <div>
-        {this.state.deck.map((x, i) => {
-          return <Card card={x} key={`${x.suit}${x.value}`}/>
-        })}
+      <div className={`board`}>
+        <Hand id={`dealer-hand`} cards={this.state.deck.slice(0, 5)}/>
+        <div>middle</div>
+        <Hand id={'player-hand'} cards={this.state.deck.slice(5,10)}/>
       </div>
     )
   }
